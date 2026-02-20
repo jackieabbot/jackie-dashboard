@@ -1,0 +1,10 @@
+{
+  "cpu": 13,
+  "memory": { "total_mb": 7820, "used_mb": 2200, "percent": 28 },
+  "disk_percent": 11,
+  "temperature_c": 45,
+  "uptime": "up 3 days, 6 hours, 25 minutes",
+  "gateway": "running",
+  "tunnel": "running",
+  "timestamp": "2026-02-19T20:45:16-05:00"
+}

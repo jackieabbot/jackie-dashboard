@@ -234,7 +234,7 @@
         // Load system stats
         async function loadSystem() {
             try {
-                const res = await fetch('/api/system.sh');
+                const res = await fetch('/system.json');
                 const data = await res.json();
                 
                 document.getElementById('cpu').textContent = data.cpu.toFixed(1) + '%';
@@ -257,7 +257,7 @@
         // Load calls
         async function loadCalls() {
             try {
-                const res = await fetch('/api/calls.sh');
+                const res = await fetch('/calls.json');
                 const calls = await res.json();
                 
                 let inbound = 0, outbound = 0;

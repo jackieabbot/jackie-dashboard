@@ -1,65 +1,38 @@
-# Call Dashboard - Development Notes
+# Jackie's Call Dashboard
 
-**Started:** 2026-02-19
-**Status:** IN PROGRESS
+**Public URL:** https://jackieabbot.github.io/jackie-call-dashboard/
+**Password:** (Ask Annie)
 
-## Private Repo (Development)
-- **Location:** https://github.com/jackieabbot/jackie-call-dashboard
-- **Access:** Private - Annie (afdon) has admin access ✓
-
-## Vision
-A web dashboard to monitor:
-1. **Calls** - Inbound/outbound logs, status
-2. **Gateway** - Activity, errors, health
-3. **System** - CPU, memory, temperature
-4. **Tokens** - API usage tracking
+This is a static dashboard that shows:
+- Recent calls (inbound/outbound)
+- System stats (CPU, memory, temp)
+- Gateway status
+- Logs
 
 ## Architecture
 
-### Private Side (Sensitive)
-- API endpoints that collect real data
-- Stores actual phone numbers, IPs, logs
-- Runs locally on the Pi
+1. **Local generation** - Scripts on Pi generate static JSON every few minutes
+2. **Push to GitHub** - Static files pushed to repo
+3. **GitHub Pages** - Serves the static site
+4. **Staticrypt** - Encrypts the HTML so it needs a password
 
-### Public Side (Sanitized)
-- Static site with no sensitive data
-- Password protected via Staticrypt
-- Shows anonymized summaries
+## Files
 
-## Features
+- `public/` - The static site (what's deployed)
+- `scripts/generate-dashboard-data.sh` - Generates JSON files
 
-### Tab 1: Calls
-- Recent inbound calls
-- Recent outbound calls
-- Call status (answered, missed, voicemail)
-- Duration
-- Timestamp
+## Update Data
 
-### Tab 2: Gateway
-- Gateway status (running, errors)
-- Recent log entries
-- Plugin status
-- Session activity
+```bash
+/home/jackie/jackie/scripts/generate-dashboard-data.sh
+```
 
-### Tab 3: System
-- CPU usage
-- Memory usage
-- Temperature
-- Disk usage
-- Uptime
+## Password
 
-### Tab 4: Tokens
-- LLM API usage (per call)
-- Token counts
-- Estimated cost
+The site is protected with Staticrypt. Ask Annie for the password.
 
-## Tech Stack
-- **Frontend:** HTML/CSS/JS (lightweight, no framework)
-- **Backend:** Simple API endpoints (bash scripts + JSON)
-- **Auth:** Staticrypt for password protection
+## Private Development
 
-## TODO
-- [ ] Create API endpoints for data collection
-- [ ] Build dashboard UI
-- [ ] Add Staticrypt
-- [ ] Deploy public version
+Private repo with full sensitive data: (separate)
+
+Public version is sanitized and password-protected.
